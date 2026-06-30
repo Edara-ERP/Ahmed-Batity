@@ -5,7 +5,7 @@ import { VitePWA } from 'vite-plugin-pwa'
 // ⚠️ مهم جدًا: غيّر القيمة أدناه لتطابق اسم الـ Repository على GitHub
 // مثال: إذا كان رابط المستودع github.com/username/edaraerp
 // فيجب أن تكون القيمة '/edaraerp/'
-const REPO_BASE = '/edaraerp/'
+const REPO_BASE = '/Ahmed-Batity/'
 
 export default defineConfig({
   base: REPO_BASE,
