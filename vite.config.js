@@ -2,9 +2,8 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { VitePWA } from 'vite-plugin-pwa'
 
-// ⚠️ مهم جدًا: غيّر القيمة أدناه لتطابق اسم الـ Repository على GitHub
-// مثال: إذا كان رابط المستودع github.com/username/edaraerp
-// فيجب أن تكون القيمة '/edaraerp/'
+// ⚠️ مهم جدًا: يجب أن تطابق هذه القيمة اسم الـ Repository على GitHub بالضبط (حساسة لحالة الأحرف)
+// مضبوطة حاليًا لتطابق: github.com/edara-erp/Ahmed-Batity
 const REPO_BASE = '/Ahmed-Batity/'
 
 export default defineConfig({
