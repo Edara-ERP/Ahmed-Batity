@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    direction: rtl;
+  }
+  body {
+    @apply text-gray-800 dark:text-gray-100;
+  }
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary-300 rounded-full;
+  }
+  /* إظهار واضح لتركيز لوحة المفاتيح لإمكانية الوصول */
+  :focus-visible {
+    outline: 2px solid #0d7377;
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-card dark:bg-card-dark rounded-2xl shadow-card dark:shadow-card-dark p-4 transition-colors;
+  }
+
+  .btn-primary {
+    @apply bg-primary-500 hover:bg-primary-600 active:bg-primary-700 text-white font-semibold rounded-xl px-4 py-2.5 transition-colors disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply bg-primary-50 dark:bg-primary-900/40 text-primary-700 dark:text-primary-200 hover:bg-primary-100 dark:hover:bg-primary-900/70 font-semibold rounded-xl px-4 py-2.5 transition-colors;
+  }
+
+  .input-field {
+    @apply w-full rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-surface-dark px-3 py-2.5 text-sm focus:border-primary-500 focus:ring-1 focus:ring-primary-500 outline-none transition-colors;
+  }
+
+  .page-title {
+    @apply text-lg font-bold text-gray-900 dark:text-white;
+  }
+}
+
+/* أنيميشن دخول بسيط للبطاقات */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-up {
+  animation: fade-up 0.35s ease-out both;
+}

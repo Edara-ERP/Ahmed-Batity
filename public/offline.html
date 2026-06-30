@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>أنت غير متصل بالإنترنت — EdaraERP</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: 'Cairo', 'Tajawal', sans-serif;
+        background: #ffffff;
+        color: #1f2937;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 24px;
+      }
+      .logo {
+        width: 64px;
+        height: 64px;
+        border-radius: 18px;
+        background: #0d7377;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 800;
+        font-size: 26px;
+        margin: 0 auto 20px;
+      }
+      h1 { font-size: 18px; margin: 8px 0; }
+      p { color: #6b7280; font-size: 14px; max-width: 320px; margin: 0 auto 20px; }
+      button {
+        background: #0d7377;
+        color: #fff;
+        border: none;
+        padding: 12px 28px;
+        border-radius: 14px;
+        font-family: inherit;
+        font-weight: 700;
+        font-size: 14px;
+        cursor: pointer;
+      }
+      button:active { background: #085052; }
+      @media (prefers-color-scheme: dark) {
+        body { background: #10211f; color: #f3f4f6; }
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <div class="logo">E</div>
+      <h1>أنت غير متصل بالإنترنت حاليًا</h1>
+      <p>لا يمكن تحميل هذه الصفحة الآن. أي عمليات تقوم بها ستُحفظ محليًا وتُزامن تلقائيًا عند عودة الاتصال.</p>
+      <button onclick="window.location.reload()">إعادة المحاولة</button>
+    </div>
+  </body>
+</html>
