@@ -31,23 +31,28 @@ export default function Login() {
   useEffect(() => {
     if (!scriptReady || !window.google || !buttonRef.current) return
 
-    window.google.accounts.id.initialize({
-      client_id: GOOGLE_CLIENT_ID,
-      callback: async (response) => {
-        setAuthenticating(true)
-        const ok = await loginWithGoogleCredential(response.credential)
-        setAuthenticating(false)
-        if (ok) navigate('/', { replace: true })
-      }
-    })
+    try {
+      window.google.accounts.id.initialize({
+        client_id: GOOGLE_CLIENT_ID,
+        callback: async (response) => {
+          setAuthenticating(true)
+          const ok = await loginWithGoogleCredential(response.credential)
+          setAuthenticating(false)
+          if (ok) navigate('/', { replace: true })
+        }
+      })
 
-    window.google.accounts.id.renderButton(buttonRef.current, {
-      theme: 'outline',
-      size: 'large',
-      width: 280,
-      text: 'continue_with',
-      locale: 'ar'
-    })
+      window.google.accounts.id.renderButton(buttonRef.current, {
+        theme: 'outline',
+        size: 'large',
+        width: 280,
+        text: 'continue_with',
+        locale: 'ar'
+      })
+    } catch (err) {
+      // فشل تحميل زر جوجل (غالبًا بسبب Client ID غير صحيح) لا يجب أن يوقف باقي الصفحة
+      console.error('Google Identity Services init failed:', err)
+    }
   }, [scriptReady, loginWithGoogleCredential, navigate])
 
   return (

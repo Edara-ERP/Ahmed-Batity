@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { HashRouter } from 'react-router-dom'
 import App from './App.jsx'
+import ErrorBoundary from './components/ErrorBoundary.jsx'
 import { ThemeProvider } from './context/ThemeContext.jsx'
 import { AuthProvider } from './context/AuthContext.jsx'
 import { Toaster } from 'react-hot-toast'
@@ -18,19 +19,21 @@ if ('serviceWorker' in navigator) {
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     {/* HashRouter إلزامي على GitHub Pages لتفادي مشاكل 404 عند تحديث الصفحة */}
-    <HashRouter>
-      <ThemeProvider>
-        <AuthProvider>
-          <App />
-          <Toaster
-            position="top-center"
-            toastOptions={{
-              style: { fontFamily: 'Cairo, sans-serif', direction: 'rtl' },
-              success: { iconTheme: { primary: '#0d7377', secondary: '#fff' } }
-            }}
-          />
-        </AuthProvider>
-      </ThemeProvider>
-    </HashRouter>
+    <ErrorBoundary>
+      <HashRouter>
+        <ThemeProvider>
+          <AuthProvider>
+            <App />
+            <Toaster
+              position="top-center"
+              toastOptions={{
+                style: { fontFamily: 'Cairo, sans-serif', direction: 'rtl' },
+                success: { iconTheme: { primary: '#0d7377', secondary: '#fff' } }
+              }}
+            />
+          </AuthProvider>
+        </ThemeProvider>
+      </HashRouter>
+    </ErrorBoundary>
   </React.StrictMode>
 )
